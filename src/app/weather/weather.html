@@ -1,0 +1,16 @@
+<div style="border: 2px solid #e03131; padding: 20px; border-radius: 8px; max-width: 400px; margin-top: 25px;">
+  <h2>🌤️ Paris Weather Details</h2>
+
+  @if (isLoading()) {
+  <p>Loading weather data...</p>
+  } @else if (weatherData()) {
+  <p><strong>Temperature:</strong> {{ weatherData().temperature_2m }}°C</p>
+  <p><strong>Wind Speed:</strong> {{ weatherData().wind_speed_10m }} km/h</p>
+  } @else {
+  <p>Could not load weather details. Please try again.</p>
+  }
+
+  <button (click)="goBack.emit()" style="background-color: #4b5563; margin-top: 15px;">
+    ← Back to Home
+  </button>
+</div>

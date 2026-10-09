@@ -1,0 +1,8 @@
+.profile-card {
+  border: 2px dashed #3b82f6; /* Blue border */
+  background-color: #f0fdf4;  /* Light background */
+  padding: 15px;
+  border-radius: 8px;
+  max-width: 300px;
+  margin-top: 20px;
+}
