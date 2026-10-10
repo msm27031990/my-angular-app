@@ -1,12 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { Profile } from './profile/profile';
 import { Weather } from './weather/weather';
+import { MyLifecycleSample } from './my-lifecycle-sample/my-lifecycle-sample';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',
-  imports: [Profile, Weather]
+  imports: [Profile, Weather, MyLifecycleSample]
 })
 export class App {
   protected readonly title = signal('my-angular-app');
