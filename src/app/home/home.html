@@ -1,0 +1,14 @@
+<h1>Welcome to My First Angular App!</h1>
+
+<p>You have clicked the button <strong>{{ clickCount() }}</strong> times!</p>
+<button (click)="incrementCount()">Click Me!</button>
+
+<hr style="margin: 20px 0; border: 0; border-top: 1px solid #ccc;" />
+
+<!-- ⚡ Use routerLink instead of manual functions -->
+<button routerLink="/weather" style="background-color: #2563eb;">
+  Check Paris Weather →
+</button>
+
+<app-profile></app-profile>
+<app-my-lifecycle-sample></app-my-lifecycle-sample>

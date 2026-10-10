@@ -1,16 +1,15 @@
-import { Component, inject, signal, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, inject, signal, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.html',
-  styleUrl: '../app.css'
+  styleUrl: '../app.css',
+  imports: [RouterLink]
 })
 export class Weather implements OnInit {
   private http = inject(HttpClient);
-
-  @Output() goBack = new EventEmitter<void>();
-
   protected readonly weatherData = signal<any>(null);
   protected readonly isLoading = signal<boolean>(true);
 
@@ -19,7 +18,6 @@ export class Weather implements OnInit {
   }
 
   private fetchWeather() {
-    // Constructing absolute data path explicitly
     const baseApi = 'https://api.open-meteo.com/v1/forecast';
     const params = '?latitude=48.8566&longitude=2.3522&current=temperature_2m,wind_speed_10m';
     const fullUrl = baseApi + params;
