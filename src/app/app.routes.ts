@@ -6,5 +6,6 @@ export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   // 2. Define our page routes
   { path: 'home', loadComponent: () => import('./home/home').then(m => m.Home) },
-  { path: 'weather', loadComponent: () => import('./weather/weather').then(m => m.Weather) }
+  { path: 'weather', loadComponent: () => import('./weather/weather').then(m => m.Weather) },
+  { path: 'products', loadComponent: () => import('./products/products').then(m => m.Products) }
 ];

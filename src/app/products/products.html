@@ -1,0 +1,35 @@
+<div style="padding: 20px; max-width: 800px; margin: 0 auto;">
+  <h2>🛒 Spring Boot Product Catalog</h2>
+
+  <!-- 1. Loading State Indicator -->
+  @if (isLoading()) {
+  <p>Connecting to backend API...</p>
+  }
+
+  <!-- 2. Error Fallback Handling -->
+  @if (errorMessage()) {
+  <p style="color: #dc2626; font-weight: bold;">{{ errorMessage() }}</p>
+  }
+
+  <!-- 3. Loop through and display products list -->
+  @if (!isLoading() && !errorMessage()) {
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; margin-top: 20px;">
+    @for (product of productsList(); track product.id) {
+    <div style="border: 1px solid #ccc; padding: 15px; border-radius: 8px; background-color: #fff; box-shadow: 2px 2px 5px rgba(0,0,0,0.05);">
+      <h3 style="margin-top: 0; color: #2563eb;">{{ product.name }}</h3>
+      <p style="color: #666; font-size: 14px; min-height: 40px;">{{ product.description }}</p>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+        <span style="font-weight: bold; font-size: 18px; color: #059669;">${{ product.price }}</span>
+        <span style="font-size: 12px; color: #999;">ID: #{{ product.id }}</span>
+      </div>
+    </div>
+    } @empty {
+    <p>No products available in the inventory.</p>
+    }
+  </div>
+  }
+
+  <button routerLink="/home" style="background-color: #4b5563; margin-top: 30px;">
+    ← Back to Dashboard
+  </button>
+</div>
